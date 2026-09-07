@@ -1,0 +1,405 @@
+<!--
+  READYMAG EMBED: ENGINEERING PORTFOLIO
+  Copy everything in this file into a Readymag Code widget.
+  Search for "EDIT ME" to replace the sample name, contact details, and content.
+-->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ================================================================
+     COMPONENT MAP
+     1. Navigation
+     2. Home: hero, portrait upload, summary
+     3. Projects: project stage and gear selector
+     4. Experience: timeline and experience card
+     5. About: interests, contact, footer
+     6. CSS: tokens, shared styles, component styles, responsive styles
+     7. JavaScript: content data, navigation, photo upload, projects, timeline
+     ================================================================ -->
+<div id="engineering-portfolio">
+  <!-- ============================ NAVIGATION ============================ -->
+  <nav class="ep-nav" aria-label="Portfolio navigation">
+    <button class="ep-brand" type="button" data-tab="home" aria-label="Portfolio home">
+      <span class="ep-brand-mark">ME</span>
+      <span class="ep-brand-copy">Engineer<br>&amp; maker</span>
+    </button>
+    <div class="ep-nav-links">
+      <button class="ep-nav-link active" type="button" data-tab="home"><small>01</small>Home</button>
+      <button class="ep-nav-link" type="button" data-tab="projects"><small>02</small>Projects</button>
+      <button class="ep-nav-link" type="button" data-tab="experience"><small>03</small>Experience</button>
+      <button class="ep-nav-link" type="button" data-tab="about"><small>04</small>About me</button>
+    </div>
+    <button class="ep-contact-pill" type="button" data-tab="about">Let’s talk ↘</button>
+  </nav>
+
+  <!-- =============================== HOME =============================== -->
+  <section class="ep-view ep-home active" data-view="home" aria-labelledby="ep-home-title">
+    <!-- Home background decoration -->
+    <div class="ep-orb ep-orb-orange"></div><div class="ep-orb ep-orb-green"></div>
+
+    <!-- Home hero content -->
+    <div class="ep-hero-copy">
+      <div class="ep-eyebrow">✦ Welcome to my corner of the internet</div>
+      <h1 id="ep-home-title"><span class="ep-greeting">Hi there, I’m</span><span class="ep-name">Maxwell Nakatsuji</span><span class="ep-subtitle">Biomedical &amp; Mechanical Engineer from <em>Tufts University.</em></span></h1>
+      <p class="ep-intro">I’m a multidisciplinary engineer who turns complex problems into clear, human-centered systems—from the first sketch to the final shipped detail.</p>
+      <div class="ep-actions">
+        <button class="ep-primary" type="button" data-tab="projects">Explore my work ↘</button>
+        <span class="ep-available"><i></i> Available for meaningful collaborations</span>
+      </div>
+    </div>
+
+    <!-- Home portrait -->
+    <div class="ep-portrait-wrap">
+      <div class="ep-portrait-card">
+        <img id="ep-portrait-image" src="max grad photo.png" alt="Maxwell Nakatsuji portrait">
+      </div>
+    </div>
+
+    <!-- Home summary panel -->
+    <div class="ep-summary">
+      <div><span>01 / ABOUT</span><strong>Curious by nature.<br>Practical by training.</strong></div>
+      <p>I care about elegant mechanisms, resilient software, and the small details that make technology feel natural.</p>
+      <div class="ep-stats"><span><b>12</b> selected projects</span><span><b>∞</b> questions asked</span></div>
+    </div>
+  </section>
+
+  <!-- ============================== PROJECTS ============================= -->
+  <section class="ep-view ep-projects" data-view="projects" aria-labelledby="ep-projects-title" hidden>
+    <header class="ep-section-heading">
+      <span>02 / SELECTED WORK</span>
+      <h2 id="ep-projects-title">Twelve projects.<br><em>One turn at a time.</em></h2>
+      <p>Spin the project gear—or choose a tooth—to move through the collection.</p>
+    </header>
+    <article class="ep-project-stage" id="ep-project-stage">
+      <div class="ep-project-index"><b id="ep-project-number">01</b> <span>/ 12</span></div>
+      <div class="ep-project-details">
+        <span class="ep-project-type" id="ep-project-type"></span>
+        <h3 id="ep-project-title"></h3>
+        <p id="ep-project-summary"></p>
+        <div class="ep-tags" id="ep-project-tags"></div>
+        <a class="ep-case-link" id="ep-case-link" href="#" onclick="return false;">View case study ↗</a>
+      </div>
+      <div class="ep-project-diagram" aria-hidden="true">
+        <div class="ep-diagram-ring"><span id="ep-project-metric"></span><small id="ep-project-metric-label"></small></div>
+        <i></i><i></i><i></i>
+      </div>
+    </article>
+    <div class="ep-gear-dock">
+      <div class="ep-gear-help"><b>PROJECT GEAR</b><span>Choose a tooth</span></div>
+      <div class="ep-gear-shell"><div class="ep-gear" id="ep-gear"><div class="ep-gear-hub"><span id="ep-gear-number">01</span></div></div></div>
+      <div class="ep-gear-arrows"><button id="ep-prev-project" type="button" aria-label="Previous project">←</button><button id="ep-next-project" type="button" aria-label="Next project">→</button></div>
+    </div>
+  </section>
+
+  <!-- ============================= EXPERIENCE ============================ -->
+  <section class="ep-view ep-experience" data-view="experience" aria-labelledby="ep-experience-title" hidden>
+    <header class="ep-section-heading ep-compact">
+      <span>03 / EXPERIENCE</span>
+      <h2 id="ep-experience-title">Built over time.<br><em>Always learning.</em></h2>
+    </header>
+    <div class="ep-experience-layout">
+      <div class="ep-timeline-panel">
+        <div class="ep-timeline-years" id="ep-timeline-years"></div>
+        <input id="ep-timeline" aria-label="Select experience by year" type="range" min="0" max="4" step="1" value="0">
+        <div class="ep-timeline-caption"><span>Recent</span><span>First chapter</span></div>
+      </div>
+      <article class="ep-experience-card">
+        <div class="ep-experience-period" id="ep-experience-period"></div>
+        <h3 id="ep-experience-role"></h3>
+        <div class="ep-org-line"><strong id="ep-experience-org"></strong><span id="ep-experience-place"></span></div>
+        <ul id="ep-experience-bullets"></ul>
+        <div class="ep-experience-footer"><span>Move the timeline to explore</span><b id="ep-experience-number"></b></div>
+      </article>
+    </div>
+    <div class="ep-capabilities"><span>WAYS I WORK</span><b>Systems thinking</b><b>Rapid prototyping</b><b>Design for manufacturing</b><b>Technical storytelling</b></div>
+  </section>
+
+  <!-- ================================ ABOUT ============================== -->
+  <section class="ep-view ep-about" data-view="about" aria-labelledby="ep-about-title" hidden>
+    <div class="ep-about-intro">
+      <span class="ep-section-label">04 / ABOUT ME</span>
+      <h2 id="ep-about-title">Engineering is how I make sense of the world. <em>Photography is how I notice it.</em></h2>
+      <p>Outside of product work, I’m usually walking with a camera, repairing something that might still have a second life, or collecting tiny observations for a future project.</p>
+    </div>
+    <div class="ep-interest-grid">
+      <article class="ep-interest-card ep-orange">
+        <span>PERSONAL PRACTICE</span><h3>Photography</h3>
+        <p>Quiet architecture, changing neighborhoods, and the accidental geometry of everyday life.</p>
+        <div class="ep-photo-index"><i>01</i><i>02</i><i>03</i></div>
+        <a href="#" onclick="return false;">Browse photo notes →</a>
+      </article>
+      <article class="ep-interest-card ep-green">
+        <span>CURRENTLY CURIOUS ABOUT</span><h3>Repairable objects</h3>
+        <p>Products with visible logic, honest materials, and a clear path to maintenance.</p>
+        <div class="ep-interest-list"><b>Field recording</b><b>Urban systems</b><b>Bookbinding</b></div>
+      </article>
+      <article class="ep-contact-card">
+        <span>START A CONVERSATION</span><h3>Have an interesting problem?</h3>
+        <p>I’m always happy to compare notes, hear about a new idea, or discuss how I might help.</p>
+        <!-- EDIT ME: replace the sample links and labels below -->
+        <div class="ep-contact-list">
+          <a href="mailto:hello@example.com">✉ hello@example.com</a>
+          <a href="https://linkedin.com" target="_blank" rel="noreferrer">↗ LinkedIn profile</a>
+          <a href="tel:+10000000000">☎ Add your phone number</a>
+          <a href="https://github.com" target="_blank" rel="noreferrer">↗ GitHub profile</a>
+        </div>
+      </article>
+    </div>
+    <footer class="ep-footer"><span>Designed with care. Engineered with curiosity.</span><b>© 2026 YOUR NAME</b></footer>
+  </section>
+</div>
+
+<style>
+  /* ============================ DESIGN TOKENS ============================ */
+  #engineering-portfolio {
+    --ink:#26312d; --cream:#f5f1e8; --paper:#fffdf8; --orange:#ef9b68;
+    --orange-deep:#cb6f43; --green:#a9c9a1; --green-deep:#587b63;
+    --grey:#89908c; --line:rgba(38,49,45,.15); --project-accent:#ef9b68;
+    position:relative; width:100%; min-height:100vh; overflow:hidden; color:var(--ink);
+    background:radial-gradient(circle at 48% 30%,#fffdf7 0,transparent 36%),linear-gradient(135deg,#f5efe3,#eef1e8 58%,#edeae6);
+    font-family:Arial,Helvetica,sans-serif; line-height:1.4; isolation:isolate;
+  }
+  /* ========================== SHARED FOUNDATION ========================== */
+  #engineering-portfolio *, #engineering-portfolio *::before, #engineering-portfolio *::after { box-sizing:border-box; }
+  #engineering-portfolio button, #engineering-portfolio a { font:inherit; }
+  #engineering-portfolio button { color:inherit; }
+  /* ============================== NAVIGATION ============================= */
+  #engineering-portfolio .ep-nav { position:sticky; top:0; z-index:20; height:104px; display:flex; align-items:center; justify-content:space-between; padding:0 5vw; border-bottom:1px solid var(--line); background:rgba(245,241,232,.88); backdrop-filter:blur(18px); }
+  #engineering-portfolio .ep-brand { display:flex; align-items:center; gap:12px; border:0; padding:0; color:var(--ink); background:none; cursor:pointer; text-align:left; }
+  #engineering-portfolio .ep-brand-mark { display:grid; place-items:center; width:46px; height:46px; border-radius:15px; background:var(--ink); color:var(--cream); font-weight:800; letter-spacing:-.05em; }
+  #engineering-portfolio .ep-brand-copy { font-size:12px; font-weight:700; line-height:1.05; text-transform:uppercase; letter-spacing:.08em; }
+  #engineering-portfolio .ep-nav-links { display:flex; gap:8px; padding:6px; border-radius:99px; background:rgba(255,255,255,.52); box-shadow:inset 0 0 0 1px rgba(255,255,255,.7); backdrop-filter:blur(12px); }
+  #engineering-portfolio .ep-nav-link { border:0; padding:11px 17px; border-radius:99px; background:transparent; font-size:13px; cursor:pointer; transition:.25s ease; }
+  #engineering-portfolio .ep-nav-link small { margin-right:7px; color:var(--grey); font-size:9px; vertical-align:top; }
+  #engineering-portfolio .ep-nav-link:hover, #engineering-portfolio .ep-nav-link.active { background:var(--paper); box-shadow:0 7px 22px rgba(48,57,52,.08); }
+  #engineering-portfolio .ep-contact-pill, #engineering-portfolio .ep-primary { display:inline-flex; align-items:center; gap:11px; border:0; border-radius:99px; font-weight:700; cursor:pointer; }
+  #engineering-portfolio .ep-contact-pill { padding:13px 19px; color:var(--paper); background:var(--ink); font-size:13px; }
+  #engineering-portfolio .ep-view { display:none; min-height:calc(100vh - 104px); animation:ep-in .48s cubic-bezier(.2,.8,.2,1) both; }
+  #engineering-portfolio .ep-view[hidden] { display:none !important; }
+  #engineering-portfolio .ep-view.active { display:grid; }
+  @keyframes ep-in { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+
+  /* ================================ HOME ================================= */
+  #engineering-portfolio .ep-home { position:relative; grid-template-columns:1.2fr .8fr; grid-template-rows:auto auto; align-items:start; column-gap:6vw; row-gap:1px; min-height:calc(100vh - 104px); margin-top:0; padding:5vh 8vw 60px; }
+  #engineering-portfolio .ep-hero-copy { position:relative; z-index:2; max-width:820px; align-self:start; }
+  #engineering-portfolio .ep-eyebrow { margin-bottom:24px; color:var(--green-deep); font-size:12px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+  #engineering-portfolio h1 {
+    display:flex;
+    flex-direction:column;
+    gap:0.08em;
+    max-width:820px;
+    margin:0;
+    font-size:clamp(50px,6.7vw,104px);
+    line-height:.82;
+    letter-spacing:-.065em;
+    font-weight:700;
+  }
+  #engineering-portfolio .ep-greeting, #engineering-portfolio .ep-subtitle { display:block; font-size:clamp(25px,3.35vw,52px); line-height:.95; letter-spacing:-.05em; }
+  #engineering-portfolio .ep-name { display:block; font-size:clamp(50px,6.7vw,104px); line-height:.9; letter-spacing:-.065em; }
+  #engineering-portfolio .ep-subtitle em { color:var(--orange-deep); font-family:Georgia,serif; font-style:italic; font-weight:500; }
+  #engineering-portfolio h1 em, #engineering-portfolio h2 em { color:var(--orange-deep); font-family:Georgia,serif; font-weight:400; }
+  #engineering-portfolio .ep-intro { max-width:630px; margin:32px 0; color:#626b66; font-size:clamp(17px,1.5vw,21px); line-height:1.62; }
+  #engineering-portfolio .ep-actions { display:flex; align-items:center; gap:24px; }
+  #engineering-portfolio .ep-primary { padding:16px 23px; color:var(--paper); background:var(--green-deep); box-shadow:0 12px 28px rgba(64,93,72,.2); }
+  #engineering-portfolio .ep-available { display:flex; align-items:center; gap:9px; color:#667069; font-size:12px; }
+  #engineering-portfolio .ep-available i { width:9px; height:9px; border-radius:50%; background:#72a26f; box-shadow:0 0 0 5px rgba(114,162,111,.15); }
+  #engineering-portfolio .ep-portrait-wrap { position:relative; z-index:2; justify-self:center; align-self:start; transform:rotate(2deg); }
+  #engineering-portfolio .ep-portrait-card { position:relative; display:flex; flex-direction:column; width:min(30vw,390px); padding:14px; border:1px solid rgba(255,255,255,.75); border-radius:45px; background:rgba(255,255,255,.5); box-shadow:0 28px 80px rgba(63,71,65,.16); backdrop-filter:blur(18px); }
+  #engineering-portfolio .ep-portrait-card img { display:block; width:100%; aspect-ratio:.78; flex:0 0 auto; border-radius:34px; object-fit:cover; object-position:center; }
+  #engineering-portfolio .ep-orb { position:absolute; border-radius:50%; opacity:.75; }
+  #engineering-portfolio .ep-orb-orange { width:340px; height:340px; right:24%; top:calc(8% + 80px); background:rgba(242,180,140,.34); }
+  #engineering-portfolio .ep-orb-green { width:430px; height:430px; right:-8%; bottom:-4%; background:rgba(154,190,155,.32); }
+  #engineering-portfolio .ep-summary { position:relative; z-index:3; grid-column:1 / -1; display:grid; grid-template-columns:1fr 1.25fr 1fr; gap:45px; align-items:center; width:100%; margin:0; padding:23px 28px; border:1px solid rgba(255,255,255,.72); border-radius:28px; background:rgba(255,255,255,.53); box-shadow:0 18px 60px rgba(62,69,64,.08); backdrop-filter:blur(18px); }
+  #engineering-portfolio .ep-summary>div:first-child { display:flex; gap:24px; align-items:center; }
+  #engineering-portfolio .ep-summary span { color:var(--grey); font-size:10px; text-transform:uppercase; letter-spacing:.11em; }
+  #engineering-portfolio .ep-summary strong { font-family:Georgia,serif; font-size:20px; font-weight:500; }
+  #engineering-portfolio .ep-summary p { margin:0; color:#667069; font-size:13px; line-height:1.5; }
+  #engineering-portfolio .ep-stats { display:flex; justify-content:flex-end; gap:25px; }
+  #engineering-portfolio .ep-stats span { display:grid; gap:2px; }
+  #engineering-portfolio .ep-stats b { color:var(--ink); font-family:Georgia,serif; font-size:24px; font-weight:500; }
+
+  /* ============================== PROJECTS =============================== */
+  #engineering-portfolio .ep-section-heading { position:relative; left:auto; top:auto; z-index:3; max-width:500px; }
+  #engineering-portfolio .ep-section-heading>span, #engineering-portfolio .ep-section-label { color:var(--green-deep); font-size:11px; font-weight:800; letter-spacing:.15em; }
+  #engineering-portfolio .ep-section-heading h2, #engineering-portfolio .ep-about-intro h2 { margin:12px 0 16px; font-size:clamp(42px,5vw,76px); line-height:.95; letter-spacing:-.055em; }
+  #engineering-portfolio .ep-section-heading p { max-width:400px; color:#69716d; line-height:1.55; }
+  #engineering-portfolio .ep-projects { position:relative; display:flex; flex-direction:column; gap:38px; padding:45px 6vw; overflow:hidden; }
+  #engineering-portfolio .ep-projects::before { content:''; position:absolute; width:540px; height:540px; border-radius:50%; right:-160px; top:-180px; background:rgba(169,201,161,.23); }
+  #engineering-portfolio .ep-project-stage { position:relative; z-index:2; width:100%; min-height:65%; display:grid; grid-template-columns:auto 1fr .8fr; align-items:center; gap:42px; margin:0; padding:clamp(30px,4vw,66px); overflow:hidden; border:1px solid rgba(255,255,255,.78); border-radius:42px; background:rgba(255,255,255,.55); box-shadow:0 30px 90px rgba(55,64,59,.11); backdrop-filter:blur(18px); }
+  #engineering-portfolio .ep-project-stage::after { content:''; position:absolute; width:290px; height:290px; border-radius:50%; right:-70px; bottom:-95px; background:var(--project-accent); opacity:.25; }
+  #engineering-portfolio .ep-project-index { align-self:start; color:var(--orange-deep); font-family:Georgia,serif; font-size:36px; }
+  #engineering-portfolio .ep-project-index span { color:var(--grey); font-family:Arial,sans-serif; font-size:11px; }
+  #engineering-portfolio .ep-project-details { position:relative; z-index:1; }
+  #engineering-portfolio .ep-project-type { color:var(--green-deep); font-size:10px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+  #engineering-portfolio .ep-project-details h3, #engineering-portfolio .ep-experience-card h3 { margin:15px 0; font-size:clamp(42px,4.5vw,72px); line-height:.92; letter-spacing:-.05em; }
+  #engineering-portfolio .ep-project-details>p { max-width:520px; color:#626b66; font-size:17px; line-height:1.65; }
+  #engineering-portfolio .ep-tags { display:flex; flex-wrap:wrap; gap:8px; margin:25px 0; }
+  #engineering-portfolio .ep-tags span { padding:8px 12px; border:1px solid var(--line); border-radius:99px; font-size:11px; }
+  #engineering-portfolio .ep-case-link, #engineering-portfolio .ep-interest-card>a { display:inline-block; border-bottom:1px solid currentColor; padding:4px 0; color:inherit; text-decoration:none; font-weight:800; }
+  #engineering-portfolio .ep-project-diagram { position:relative; z-index:1; min-width:220px; aspect-ratio:1; display:grid; place-items:center; }
+  #engineering-portfolio .ep-diagram-ring { width:82%; height:82%; display:grid; place-content:center; text-align:center; border:2px dashed rgba(38,49,45,.25); border-radius:50%; box-shadow:0 0 0 22px color-mix(in srgb,var(--project-accent) 20%,transparent); }
+  #engineering-portfolio .ep-diagram-ring span { font-family:Georgia,serif; font-size:44px; }
+  #engineering-portfolio .ep-diagram-ring small { max-width:100px; margin:auto; color:#68716c; line-height:1.3; }
+  #engineering-portfolio .ep-project-diagram>i { position:absolute; width:13px; height:13px; border-radius:50%; background:var(--project-accent); }
+  #engineering-portfolio .ep-project-diagram>i:nth-of-type(1){top:6%;left:50%} #engineering-portfolio .ep-project-diagram>i:nth-of-type(2){right:4%;bottom:29%} #engineering-portfolio .ep-project-diagram>i:nth-of-type(3){left:9%;bottom:18%}
+  #engineering-portfolio .ep-gear-dock { position:relative; z-index:5; display:flex; align-items:flex-end; gap:18px; margin-top:0; }
+  #engineering-portfolio .ep-gear-help { position:relative; display:grid; gap:3px; width:150px; align-self:flex-start; }
+  #engineering-portfolio .ep-gear-help b { font-size:11px; letter-spacing:.15em; } #engineering-portfolio .ep-gear-help span { color:var(--grey); font-size:12px; }
+  #engineering-portfolio .ep-gear-shell { width:330px; height:330px; display:grid; place-items:center; border-radius:50%; background:rgba(255,255,255,.46); box-shadow:0 24px 70px rgba(45,55,49,.13); }
+  #engineering-portfolio .ep-gear { position:relative; width:245px; height:245px; border:18px solid var(--ink); border-radius:50%; transition:transform .65s cubic-bezier(.2,.8,.2,1); }
+  #engineering-portfolio .ep-gear::after { content:''; position:absolute; inset:29px; border:2px dashed rgba(255,255,255,.48); border-radius:50%; }
+  #engineering-portfolio .ep-gear-tooth { --angle:0deg; position:absolute; left:50%; top:50%; width:36px; height:62px; margin:-31px -18px; border:0; border-radius:9px; color:var(--cream); background:var(--ink); transform:rotate(var(--angle)) translateY(-139px); cursor:pointer; }
+  #engineering-portfolio .ep-gear-tooth span { display:block; font-size:9px; transform:rotate(calc(-1 * var(--angle))); }
+  #engineering-portfolio .ep-gear-tooth.selected { background:var(--orange-deep); }
+  #engineering-portfolio .ep-gear-hub { position:absolute; inset:70px; z-index:2; display:grid; place-items:center; border-radius:50%; background:var(--cream); box-shadow:inset 0 0 0 10px var(--ink); }
+  #engineering-portfolio .ep-gear-hub span { font-family:Georgia,serif; font-size:32px; }
+  #engineering-portfolio .ep-gear-arrows { display:flex; gap:7px; margin:0 0 116px -10px; }
+  #engineering-portfolio .ep-gear-arrows button { display:grid; place-items:center; width:43px; height:43px; border:1px solid var(--line); border-radius:50%; background:rgba(255,255,255,.65); cursor:pointer; }
+
+  /* ============================= EXPERIENCE ============================== */
+  #engineering-portfolio .ep-experience { position:relative; padding:6vh 7vw; background:linear-gradient(125deg,rgba(236,166,119,.13),transparent 40%),linear-gradient(315deg,rgba(143,183,145,.18),transparent 48%); }
+  #engineering-portfolio .ep-section-heading.ep-compact { position:relative; left:auto; top:auto; }
+  #engineering-portfolio .ep-experience-layout { display:grid; grid-template-columns:.7fr 1.3fr; gap:6vw; align-items:center; margin-top:6vh; }
+  #engineering-portfolio .ep-timeline-panel { padding:40px 24px; }
+  #engineering-portfolio .ep-timeline-years { display:flex; justify-content:space-between; }
+  #engineering-portfolio .ep-timeline-years button { border:0; padding:8px; color:var(--grey); background:none; font-size:11px; cursor:pointer; }
+  #engineering-portfolio .ep-timeline-years button.active { color:var(--orange-deep); font-weight:800; }
+  #engineering-portfolio .ep-timeline-panel input { width:100%; margin:25px 0 10px; appearance:none; height:8px; border-radius:99px; background:linear-gradient(90deg,var(--orange-deep) 0 var(--timeline-progress,0%),rgba(38,49,45,.13) var(--timeline-progress,0%)); }
+  #engineering-portfolio .ep-timeline-panel input::-webkit-slider-thumb { appearance:none; width:34px; height:34px; border:8px solid var(--paper); border-radius:50%; background:var(--green-deep); box-shadow:0 6px 18px rgba(43,60,50,.25); cursor:grab; }
+  #engineering-portfolio .ep-timeline-caption { display:flex; justify-content:space-between; color:var(--grey); font-size:10px; text-transform:uppercase; letter-spacing:.12em; }
+  #engineering-portfolio .ep-experience-card { position:relative; min-height:455px; padding:clamp(34px,5vw,70px); border:1px solid rgba(255,255,255,.8); border-radius:40px; background:rgba(255,255,255,.58); box-shadow:0 25px 80px rgba(55,64,59,.1); backdrop-filter:blur(18px); }
+  #engineering-portfolio .ep-experience-period { color:var(--orange-deep); font-family:Georgia,serif; font-style:italic; }
+  #engineering-portfolio .ep-experience-card h3 { max-width:730px; font-size:clamp(38px,4vw,65px); }
+  #engineering-portfolio .ep-org-line { display:flex; gap:20px; align-items:center; margin-bottom:25px; } #engineering-portfolio .ep-org-line strong{color:var(--green-deep)} #engineering-portfolio .ep-org-line span{color:var(--grey);font-size:12px}
+  #engineering-portfolio .ep-experience-card ul { display:grid; gap:13px; margin:0; padding:0; list-style:none; }
+  #engineering-portfolio .ep-experience-card li { position:relative; padding-left:24px; color:#5e6762; line-height:1.5; } #engineering-portfolio .ep-experience-card li::before{content:'↗';position:absolute;left:0;color:var(--orange-deep)}
+  #engineering-portfolio .ep-experience-footer { position:relative; display:flex; justify-content:space-between; margin-top:32px; color:var(--grey); font-size:10px; text-transform:uppercase; letter-spacing:.1em; } #engineering-portfolio .ep-experience-footer b{color:var(--ink)}
+  #engineering-portfolio .ep-capabilities { display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-top:35px; } #engineering-portfolio .ep-capabilities span{margin-right:12px;color:var(--grey);font-size:10px;letter-spacing:.14em} #engineering-portfolio .ep-capabilities b{padding:10px 15px;border:1px solid var(--line);border-radius:99px;font-size:11px}
+
+  /* ================================= ABOUT ================================ */
+  #engineering-portfolio .ep-about { padding:6vh 7vw 30px; background:linear-gradient(135deg,rgba(238,169,122,.18),transparent 35%),linear-gradient(315deg,rgba(155,190,157,.2),transparent 40%); }
+  #engineering-portfolio .ep-about-intro { display:grid; grid-template-columns:.25fr 1.15fr .6fr; gap:4vw; align-items:start; }
+  #engineering-portfolio .ep-about-intro h2 { margin:0; max-width:900px; font-size:clamp(43px,5.2vw,78px); }
+  #engineering-portfolio .ep-about-intro p { margin:8px 0 0; color:#626b66; line-height:1.7; }
+  #engineering-portfolio .ep-interest-grid { display:grid; grid-template-columns:1fr .8fr 1.1fr; gap:18px; margin-top:6vh; }
+  #engineering-portfolio .ep-interest-card, #engineering-portfolio .ep-contact-card { min-height:360px; padding:34px; border-radius:35px; overflow:hidden; }
+  #engineering-portfolio .ep-interest-card>span, #engineering-portfolio .ep-contact-card>span { font-size:9px; font-weight:800; letter-spacing:.14em; }
+  #engineering-portfolio .ep-interest-card h3, #engineering-portfolio .ep-contact-card h3 { margin:14px 0; font-family:Georgia,serif; font-size:34px; font-weight:500; }
+  #engineering-portfolio .ep-interest-card p, #engineering-portfolio .ep-contact-card p { line-height:1.55; }
+  #engineering-portfolio .ep-orange { background:#efb188; transform:rotate(-1deg); } #engineering-portfolio .ep-green { background:#aec8a8; transform:rotate(1deg); }
+  #engineering-portfolio .ep-photo-index { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:23px 0; } #engineering-portfolio .ep-photo-index i{display:grid;place-items:end start;aspect-ratio:1;padding:10px;border-radius:20px;background:rgba(255,255,255,.28);font-family:Georgia,serif}
+  #engineering-portfolio .ep-interest-list { display:flex; flex-wrap:wrap; gap:8px; margin-top:45px; } #engineering-portfolio .ep-interest-list b{padding:9px 12px;border:1px solid rgba(38,49,45,.2);border-radius:99px;font-size:11px}
+  #engineering-portfolio .ep-contact-card { color:var(--cream); background:var(--ink); } #engineering-portfolio .ep-contact-card p{color:#cbd0cc}
+  #engineering-portfolio .ep-contact-list { display:grid; gap:10px; margin-top:28px; } #engineering-portfolio .ep-contact-list a{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.12);color:var(--cream);text-decoration:none}
+  #engineering-portfolio .ep-footer { display:flex; justify-content:space-between; margin-top:28px; padding-top:20px; border-top:1px solid var(--line); color:var(--grey); font-size:10px; letter-spacing:.12em; } #engineering-portfolio .ep-footer b{color:var(--ink)}
+
+  /* ============================ RESPONSIVE CSS =========================== */
+  @media(max-width:900px){
+    #engineering-portfolio .ep-nav{height:86px;padding:0 22px} #engineering-portfolio .ep-brand-copy,#engineering-portfolio .ep-contact-pill{display:none}
+    #engineering-portfolio .ep-nav-links{overflow-x:auto} #engineering-portfolio .ep-nav-link{padding:10px 12px} #engineering-portfolio .ep-nav-link small{display:none}
+    #engineering-portfolio .ep-view{min-height:calc(100vh - 86px)} #engineering-portfolio .ep-home{grid-template-columns:1fr;gap:45px;padding:70px 24px 250px;text-align:center}
+    #engineering-portfolio .ep-hero-copy{margin:auto} #engineering-portfolio .ep-eyebrow,#engineering-portfolio .ep-actions{justify-content:center} #engineering-portfolio .ep-intro{margin-left:auto;margin-right:auto}
+    #engineering-portfolio .ep-portrait-card{width:min(78vw,390px)} #engineering-portfolio .ep-summary{grid-template-columns:1fr;gap:14px;text-align:left} #engineering-portfolio .ep-stats{justify-content:flex-start}
+    #engineering-portfolio .ep-projects{min-height:1150px;padding:48px 24px} #engineering-portfolio .ep-section-heading{position:relative;left:auto;top:auto}
+    #engineering-portfolio .ep-project-stage{position:relative;left:auto;right:auto;top:auto;grid-template-columns:1fr;margin-top:0;padding:32px;min-height:620px}
+    #engineering-portfolio .ep-project-diagram{min-width:0;width:min(70vw,270px);justify-self:center} #engineering-portfolio .ep-gear-dock{left:auto;bottom:auto} #engineering-portfolio .ep-gear-help{left:auto}
+    #engineering-portfolio .ep-experience,#engineering-portfolio .ep-about{padding:48px 24px} #engineering-portfolio .ep-experience-layout{grid-template-columns:1fr} #engineering-portfolio .ep-experience-card{min-height:520px}
+    #engineering-portfolio .ep-about-intro{grid-template-columns:1fr} #engineering-portfolio .ep-about-intro h2{margin:12px 0} #engineering-portfolio .ep-interest-grid{grid-template-columns:1fr} #engineering-portfolio .ep-interest-card,#engineering-portfolio .ep-contact-card{min-height:320px}
+  }
+  @media(max-width:560px){
+    #engineering-portfolio .ep-nav-link{font-size:11px;padding:9px 8px} #engineering-portfolio h1{font-size:15vw} #engineering-portfolio .ep-actions{flex-direction:column}
+    #engineering-portfolio .ep-summary{bottom:auto} #engineering-portfolio .ep-summary p{display:none} #engineering-portfolio .ep-projects{min-height:1200px}
+    #engineering-portfolio .ep-project-stage{padding:27px} #engineering-portfolio .ep-project-details h3{font-size:45px} #engineering-portfolio .ep-gear-shell{width:285px;height:285px}
+    #engineering-portfolio .ep-gear{width:210px;height:210px} #engineering-portfolio .ep-gear-tooth{transform:rotate(var(--angle)) translateY(-121px);height:53px} #engineering-portfolio .ep-gear-hub{inset:57px}
+    #engineering-portfolio .ep-timeline-panel{padding:25px 4px} #engineering-portfolio .ep-experience-card{padding:30px;min-height:560px}
+    #engineering-portfolio .ep-about-intro h2{font-size:43px} #engineering-portfolio .ep-footer{flex-direction:column;gap:20px}
+  }
+</style>
+
+<script>
+(function () {
+  /* =========================== INITIALIZATION ============================ */
+  var root = document.getElementById('engineering-portfolio');
+  if (!root || root.dataset.ready === 'true') return;
+  root.dataset.ready = 'true';
+
+  /* ============================ CONTENT DATA =============================
+     Edit project and experience content here. The rendering code below
+     reads these arrays and updates the existing HTML elements.              */
+
+  // EDIT ME: replace these sample projects with your own 12 projects.
+  var projects = [
+    {title:'Autonomous Rover',type:'Robotics · Controls',year:'2026',summary:'A compact field robot that maps unfamiliar terrain and reroutes around obstacles in real time.',tags:['ROS 2','C++','SLAM'],metric:'38%',metricLabel:'faster route planning',accent:'#ef9b68'},
+    {title:'Thermal Twin',type:'Simulation · Hardware',year:'2025',summary:'A live digital twin for monitoring thermal performance across a high-output battery enclosure.',tags:['Python','FEA','IoT'],metric:'12ms',metricLabel:'sensor-to-model latency',accent:'#a9c9a1'},
+    {title:'Signal Garden',type:'Embedded · Interaction',year:'2025',summary:'A responsive public installation that translates environmental signals into light and motion.',tags:['C','Sensors','DMX'],metric:'24/7',metricLabel:'continuous operation',accent:'#b6aaa0'},
+    {title:'Assembly Atlas',type:'Manufacturing · Vision',year:'2025',summary:'Computer vision guidance that helps technicians verify complex assemblies without slowing the line.',tags:['OpenCV','Edge AI','UX'],metric:'42%',metricLabel:'fewer rechecks',accent:'#eab489'},
+    {title:'Current',type:'Energy · Data',year:'2024',summary:'A forecasting interface that makes building energy demand easier to understand and act on.',tags:['TypeScript','ML','APIs'],metric:'91%',metricLabel:'forecast accuracy',accent:'#91b69a'},
+    {title:'Soft Grip',type:'Mechanisms · Research',year:'2024',summary:'A compliant end effector designed to handle irregular objects with fewer actuators and gentler force.',tags:['CAD','Prototyping','Test'],metric:'3×',metricLabel:'object range',accent:'#d99b72'},
+    {title:'Drift',type:'Aerospace · Software',year:'2024',summary:'A mission planning tool for comparing flight paths, risk envelopes, and energy tradeoffs.',tags:['Rust','WebGL','Optimization'],metric:'60fps',metricLabel:'interactive simulation',accent:'#a7b5ae'},
+    {title:'Waterline',type:'Civic · Sensing',year:'2023',summary:'A low-cost sensing network for spotting pressure anomalies across aging water infrastructure.',tags:['LoRaWAN','PCB','Cloud'],metric:'2.4yr',metricLabel:'estimated battery life',accent:'#9bb9ab'},
+    {title:'Bench Zero',type:'Tools · Automation',year:'2023',summary:'A modular test bench that turns repetitive validation routines into reliable automated sequences.',tags:['LabVIEW','Python','DAQ'],metric:'8hr',metricLabel:'saved per test cycle',accent:'#e6a477'},
+    {title:'Fold',type:'Product · Mechanics',year:'2023',summary:'A flat-pack mobility accessory balancing tool-free assembly, durability, and repairability.',tags:['SolidWorks','DFMA','CMF'],metric:'6',metricLabel:'total components',accent:'#b6b09c'},
+    {title:'Common Thread',type:'Platform · Systems',year:'2022',summary:'A shared component platform that shortened product development while keeping teams flexible.',tags:['Systems','PLM','Design Ops'],metric:'31%',metricLabel:'less duplicated work',accent:'#8eb096'},
+    {title:'Night Shift',type:'Photography · Code',year:'2022',summary:'A generative archive that organizes nighttime street photographs through color and location.',tags:['React','Vision','Photography'],metric:'1.2k',metricLabel:'frames catalogued',accent:'#ba8468'}
+  ];
+
+  // EDIT ME: replace these sample roles with your own experience.
+  var experiences = [
+    {period:'2025 — now',role:'Senior Product Engineer',org:'Northstar Systems',place:'New York, NY',bullets:['Own architecture and technical direction for a new sensing platform.','Partner with design and operations to move prototypes into production.','Mentor engineers and establish lightweight review and test practices.']},
+    {period:'2023 — 2025',role:'Mechanical & Systems Engineer',org:'Fieldworks Lab',place:'Brooklyn, NY',bullets:['Designed electromechanical assemblies from concept through pilot builds.','Built simulation and test tools that reduced iteration cycles.','Led supplier reviews, risk tracking, and design verification.']},
+    {period:'2021 — 2023',role:'Product Development Engineer',org:'Common Matter',place:'Boston, MA',bullets:['Created mechanisms and enclosures for connected consumer products.','Translated research findings into buildable product requirements.','Supported factory ramp with fixtures, work instructions, and failure analysis.']},
+    {period:'2020 — 2021',role:'Engineering Fellow',org:'Civic Hardware Studio',place:'Remote',bullets:['Developed open-source environmental sensing prototypes.','Facilitated co-design sessions with community partners.','Published build guides, validation results, and field learnings.']},
+    {period:'2019 — 2020',role:'Engineering Intern',org:'Atlas Mobility',place:'Detroit, MI',bullets:['Automated component test reporting and data cleanup.','Supported tolerance studies and prototype vehicle builds.','Presented design recommendations to cross-functional teams.']}
+  ];
+
+  /* =========================== NAVIGATION ================================ */
+  function openTab(name) {
+    root.querySelectorAll('[data-view]').forEach(function (view) {
+      var isSelected = view.dataset.view === name;
+      view.classList.toggle('active', isSelected);
+      view.hidden = !isSelected;
+      view.setAttribute('aria-hidden', String(!isSelected));
+    });
+    root.querySelectorAll('.ep-nav-link').forEach(function (button) { button.classList.toggle('active', button.dataset.tab === name); });
+    root.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  root.querySelectorAll('[data-tab]').forEach(function (button) { button.addEventListener('click', function () { openTab(button.dataset.tab); }); });
+  openTab('home');
+
+  /* ============================ PROJECT GEAR ============================== */
+  var gear = root.querySelector('#ep-gear');
+  projects.forEach(function (project, index) {
+    var tooth = document.createElement('button'); tooth.type = 'button'; tooth.className = 'ep-gear-tooth';
+    tooth.style.setProperty('--angle', (index * 30) + 'deg'); tooth.setAttribute('aria-label','Show project '+(index+1)+': '+project.title);
+    tooth.innerHTML = '<span>' + String(index + 1).padStart(2,'0') + '</span>';
+    tooth.addEventListener('click', function () { selectProject(index); }); gear.insertBefore(tooth, gear.firstChild);
+  });
+  var selectedProject = 0;
+  function selectProject(index) {
+    selectedProject = (index + projects.length) % projects.length; var project = projects[selectedProject];
+    root.style.setProperty('--project-accent', project.accent); gear.style.transform = 'rotate(' + (-selectedProject * 30) + 'deg)';
+    root.querySelector('#ep-project-number').textContent = String(selectedProject + 1).padStart(2,'0');
+    root.querySelector('#ep-gear-number').textContent = String(selectedProject + 1).padStart(2,'0');
+    root.querySelector('#ep-project-type').textContent = project.type + ' · ' + project.year;
+    root.querySelector('#ep-project-title').textContent = project.title; root.querySelector('#ep-project-summary').textContent = project.summary;
+    root.querySelector('#ep-project-metric').textContent = project.metric; root.querySelector('#ep-project-metric-label').textContent = project.metricLabel;
+    root.querySelector('#ep-project-tags').innerHTML = project.tags.map(function(tag){return '<span>'+tag+'</span>';}).join('');
+    root.querySelectorAll('.ep-gear-tooth').forEach(function(tooth,i){tooth.classList.toggle('selected',i===selectedProject);});
+  }
+  root.querySelector('#ep-prev-project').addEventListener('click', function(){selectProject(selectedProject-1);});
+  root.querySelector('#ep-next-project').addEventListener('click', function(){selectProject(selectedProject+1);});
+  selectProject(0);
+
+  /* ============================ EXPERIENCE ================================ */
+  var years = root.querySelector('#ep-timeline-years'); var timeline = root.querySelector('#ep-timeline');
+  experiences.forEach(function(item,index){var button=document.createElement('button');button.type='button';button.textContent=item.period.split(' — ')[0];button.addEventListener('click',function(){timeline.value=index;selectExperience(index);});years.appendChild(button);});
+  function selectExperience(index){var item=experiences[index];var progress=(index/(experiences.length-1))*100+'%';timeline.style.setProperty('--timeline-progress',progress);
+    root.querySelector('#ep-experience-period').textContent=item.period;root.querySelector('#ep-experience-role').textContent=item.role;root.querySelector('#ep-experience-org').textContent=item.org;
+    root.querySelector('#ep-experience-place').textContent='⌖ '+item.place;root.querySelector('#ep-experience-number').textContent=String(index+1).padStart(2,'0')+' / 05';
+    root.querySelector('#ep-experience-bullets').innerHTML=item.bullets.map(function(bullet){return '<li>'+bullet+'</li>';}).join('');
+    years.querySelectorAll('button').forEach(function(button,i){button.classList.toggle('active',i===index);});
+  }
+  timeline.addEventListener('input',function(){selectExperience(Number(timeline.value));}); selectExperience(0);
+})();
+</script>
